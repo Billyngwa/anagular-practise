@@ -14,13 +14,13 @@ export class MainComponent implements OnInit {
     name: "",
     email: "",
     password: ""
-    userTasks:{
-      name:"",
-      description:"",
-      dueDate:"",
-      startDate:"",
-      status:TaskStatus.FAILED,
-    }
+    // userTasks:{
+    //   name:"",
+    //   description:"",
+    //   dueDate:"",
+    //   startDate:"",
+    //   status:TaskStatus.FAILED,
+    // }
   }
   constructor(private session : UsersessionService){}
 

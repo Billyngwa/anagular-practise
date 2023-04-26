@@ -6,5 +6,5 @@ export interface IUser{
     email:string,
     password:string
 
-    userTasks:Itask
+    // userTasks:Itask
 };
