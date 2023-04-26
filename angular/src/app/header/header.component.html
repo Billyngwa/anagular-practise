@@ -1,0 +1,25 @@
+<section [attr.class] = "sectionClass">
+    <nav>
+
+        <div class="logo-division">
+            <p class="logo-design">
+                <span>HN</span>
+            </p>
+        </div>
+        <div class="nav-pannel">
+            <ul class="nav-list">
+                <li><a routerLink="">Home</a></li>
+                <li>Tasks</li>
+                <li>About</li>
+                <li>Help</li>
+                <li><button [attr.type]="buttonType"><a routerLink="/sign-in">Login</a></button> </li>
+                <li>User: {{loggedUser}}</li>
+                <button type="button" (click)="logoutfnx()">
+                    Logout
+                </button>
+                
+
+            </ul>
+        </div>
+    </nav>
+</section>

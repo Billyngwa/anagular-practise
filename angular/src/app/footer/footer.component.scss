@@ -1,0 +1,5 @@
+@import "../../styles.scss";
+p.copyright{
+    text-align: center;
+    @include text-style(13px,400, $green);
+}

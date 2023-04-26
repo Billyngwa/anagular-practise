@@ -1,0 +1,17 @@
+<section class="hero">
+    <h1 class="heading">Register</h1>
+    <form action="">
+        <div class="el-h">
+            <input type="text" [(ngModel)]="user.name" name="name" placeholder="User name" required="required"/>
+        </div>
+        <div class="el-h">
+            <input type="text" [(ngModel)]="user.email" name="email" placeholder="User email" required/>
+        </div>
+        <div class="el-h">
+            <input type="password" [(ngModel)]="user.password" name="password" placeholder="password" required="required"/>
+        </div>
+        <div class="el-h">
+            <button type="submit" (click)="Register()">Register</button>
+        </div>
+    </form>
+</section>
