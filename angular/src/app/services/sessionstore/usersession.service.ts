@@ -8,12 +8,12 @@ import { DatabaseService } from '../localstore/database.service';
   providedIn: 'root'
 })
 export class UsersessionService {
-  user: IUser = {
-    id: 0,
-    name: "",
-    email: "",
-    password: ""
-  };
+  // user: IUser = {
+  //   id: 0,
+  //   name: "",
+  //   email: "",
+  //   password: ""
+  // };
   constructor(private sessionstore: SessionstorageService, private database: DatabaseService) { }
   // private sessionHolder = new ReplaySubject();
   // bool = new BooleanConstants();

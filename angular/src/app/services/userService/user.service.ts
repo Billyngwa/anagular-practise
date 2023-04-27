@@ -60,13 +60,9 @@ export class UserService {
       let lastUser = usersInLocalStorage[arrLength-1];
       if(arrLength === 0){
         user["id"] += 1;
-        // return user["id"]
       }else if(arrLength >= 1){
-        // let id 
         user["id"] = lastUser["id" as keyof object]+1; 
-        // user["id"] = lastUser["id"]++ ;
-        // return user["id"]
-        // for(const spottedUser of usersInLocalStorage ){
+
       }
       // else{
       //   alert('No id was set to user')

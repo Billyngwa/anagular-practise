@@ -9,6 +9,11 @@ import { FormsModule } from '@angular/forms';
 import { MainComponent } from './main/main.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { TasksListComponent } from './tasks/tasks-list/tasks-list.component';
+import { AddTaskComponent } from './tasks/add-task/add-task.component';
+import { EditTaskComponent } from './tasks/edit-task/edit-task.component';
+import { TaskMainComponent } from './tasks/task-main/task-main.component';
+import { ViewTaskComponent } from './tasks/view-task/view-task.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +22,12 @@ import { SignInComponent } from './sign-in/sign-in.component';
     FooterComponent,
     MainComponent,
     SignUpComponent,
-    SignInComponent
+    SignInComponent,
+    TasksListComponent,
+    AddTaskComponent,
+    EditTaskComponent,
+    TaskMainComponent,
+    ViewTaskComponent
   ],
   imports: [
     BrowserModule,

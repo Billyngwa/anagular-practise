@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IUser } from '../interfaces/user.interface';
 import { UsersessionService } from '../services/sessionstore/usersession.service';
-import { TaskStatus } from '../constants/constants.enum';
 
 @Component({
   selector: 'app-main',
@@ -13,14 +12,18 @@ export class MainComponent implements OnInit {
     id: 0,
     name: "",
     email: "",
-    password: ""
-    // userTasks:{
-    //   name:"",
-    //   description:"",
-    //   dueDate:"",
-    //   startDate:"",
-    //   status:TaskStatus.FAILED,
-    // }
+    password: "",
+    userTasks:{
+      taskName:"",
+      description:"",
+      startDate:"",
+      dueDate:"",
+      status:"",
+      difficulty:"",
+      level:"",
+      userId:""
+
+    }
   }
   constructor(private session : UsersessionService){}
 
@@ -29,4 +32,5 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
    this.name =  this.session.getsession(this.user)["nameinit"];
   }
+  loggedUser =  this.session.getsession(this.user)["nameinit"];
 }

@@ -10,12 +10,23 @@ UserService
 })
 export class SignUpComponent {
   constructor(private store : UserService){}
-  user : IUser = {
-    id : 0,
-    name : "",
+  user: IUser = {
+    id: 0,
+    name: "",
     email: "",
-    password:""
-  };
+    password: "",
+    userTasks:{
+      taskName:"",
+      description:"",
+      startDate:"",
+      dueDate:"",
+      status:"",
+      difficulty:"",
+      level:"",
+      userId:""
+
+    }
+  }
   Register(){
     if(this.user.name == ""){
       alert("User name required");

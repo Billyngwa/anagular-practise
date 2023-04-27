@@ -16,7 +16,18 @@ export class HeaderComponent  {
     id: 0,
     name: "",
     email: "",
-    password: ""
+    password: "",
+    userTasks:{
+      taskName:"",
+      description:"",
+      startDate:"",
+      dueDate:"",
+      status:"",
+      difficulty:"",
+      level:"",
+      userId:""
+
+    }
   }
 
   userState = this.userservice.bool.loginStatus

@@ -4,7 +4,6 @@ export interface IUser{
     id: number,
     name:string,
     email:string,
-    password:string
-
-    // userTasks:Itask
+    password:string,
+    userTasks:Itask
 };

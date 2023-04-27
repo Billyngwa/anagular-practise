@@ -1,5 +1,5 @@
 
- 
+ @import "../../styles.scss";
 
 *{
     margin: auto;
@@ -11,7 +11,9 @@ p{
     font-size: 30px;
 }
 section.header-section{
+    @include container(80%,10%);
     background-color: black;
+
     nav{
         display: flex;
         justify-content: space-between;
@@ -38,7 +40,10 @@ section.header-section{
                     display: inline;
                     margin-left: 25px;
                     cursor: pointer;
-                  
+                  a{
+                    text-decoration: none;
+                    color: white;
+                  }
                 }
             }
         }

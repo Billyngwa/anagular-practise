@@ -1,0 +1,45 @@
+<section class="add-task-section">
+    <div class="input-holder">
+
+        <input type="text" [(ngModel)]="task.taskName" name="taskName" class="form-control" placeholder="Task name">
+    </div>
+    <div class="input-holder">
+        <textarea type="text" [(ngModel)]="task.description" name="description" placeholder="Task description"
+            class="form-control" rows="5" cols="50">
+        </textarea>
+
+    </div>
+    <div class="input-holder">
+
+        <input type="date" [(ngModel)]="task.dueDate" name="dueDate" class="form-control" placeholder="Task due date">
+    </div>
+    <div class="input-holder">
+
+        <input type="date" name="startDate" [(ngModel)]="task.startDate" class="form-control" placeholder="Task start date">
+    </div>
+    <div class="input-selects">
+
+        <div class="input-holder">
+    
+            <select name="level" id="level" [(ngModel)]="task.level">
+        
+            </select>
+        </div>
+        <div class="input-holder">
+    
+            <select name="difficulty" id="difficulty" [(ngModel)]="task.difficulty">
+        
+            </select>
+        </div>
+        <div class="input-holder">
+    
+            <select name="status" id="status" [(ngModel)]="task.status">
+        
+            </select>
+        </div>
+    </div>
+    <div class="button">
+
+        <button (click)="saveTask()">Save task</button>
+    </div>
+</section>
