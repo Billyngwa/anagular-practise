@@ -9,7 +9,7 @@ import { IUser } from '../interfaces/user.interface';
   styleUrls: ['./header.component.scss',]
 })
 export class HeaderComponent  {
-  @Input() loggedUser:string='';
+  @Input() loggedUser:string = '';
   
   constructor(private userservice: UserService, private session: UsersessionService) { }
   user: IUser = {
@@ -25,7 +25,8 @@ export class HeaderComponent  {
       status:"",
       difficulty:"",
       level:"",
-      userId:""
+      userId:"",
+      id:""
 
     }
   }

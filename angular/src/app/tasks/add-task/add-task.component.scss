@@ -1,0 +1,31 @@
+@import "../../../styles.scss";
+section.add-task-section{
+    background: black;
+    @include container(80%,10%);
+    height: 75vh;
+    div.input-holder{
+        display: block;
+        @include container(40%,30%);
+        background-color: white;
+        input{
+            outline: none;
+            border: 1px solid rgba(255, 0, 0, 0.851);
+            border-radius: 3px;
+            @include text-style(18px,400px,white);
+            background-color: black;
+        }
+        textarea{
+            resize: none;
+            outline: none;
+            border: none;
+            border-radius: 3px;
+            @include text-style(18px,400px,white);
+            background-color: black;
+        }
+    }
+    div.input-selects{
+        @include display-element-flex(center,space-around);
+        @include container(80%,10%);
+
+    }
+}

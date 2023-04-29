@@ -35,16 +35,20 @@ export class UsersessionService {
     }
 
   }
-  getsession(user: IUser) {
+  getsession() {
     let userInScope = this.sessionstore.get("loggedUser");
     console.log(userInScope);
-
-    let someValue = {
-      id: userInScope.data["id"],
-      nameinit: userInScope.data["name"]
-
+    console.log(Object.keys(userInScope).length);
+    
+    if (userInScope.status) {
+      let someValue = {
+        id: userInScope.data["id"],
+        nameinit: userInScope.data["name"]
+      }
+      return someValue; 
     }
-    return someValue;
+
+    return null;
   }
   dltsession(user:IUser) { 
     this.sessionstore.clear();

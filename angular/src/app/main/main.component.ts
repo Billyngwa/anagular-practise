@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { IUser } from '../interfaces/user.interface';
 import { UsersessionService } from '../services/sessionstore/usersession.service';
 
@@ -7,7 +7,9 @@ import { UsersessionService } from '../services/sessionstore/usersession.service
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent implements OnInit {
+export class MainComponent implements OnInit{
+  loginUser: any = null;
+  name: string = '';
   user: IUser = {
     id: 0,
     name: "",
@@ -24,13 +26,25 @@ export class MainComponent implements OnInit {
       userId:""
 
     }
-  }
+  };
+
   constructor(private session : UsersessionService){}
 
-  name: string ='';
-
   ngOnInit(): void {
-   this.name =  this.session.getsession(this.user)["nameinit"];
+    
+    this.loginUser = this.session.getsession();
+    if (this.loginUser) {
+
+      this.name = this.loginUser.nameinit;
+    }
   }
-  loggedUser =  this.session.getsession(this.user)["nameinit"];
+
+  
+  
+  
+ 
+
+ 
+  // loggedUser =  this.session.getsession(this.user)["nameinit"];
+  
 }
