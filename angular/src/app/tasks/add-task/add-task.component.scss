@@ -1,31 +1,76 @@
 @import "../../../styles.scss";
 section.add-task-section{
-    background: black;
-    @include container(80%,10%);
-    height: 75vh;
-    div.input-holder{
-        display: block;
-        @include container(40%,30%);
-        background-color: white;
-        input{
-            outline: none;
-            border: 1px solid rgba(255, 0, 0, 0.851);
-            border-radius: 3px;
-            @include text-style(18px,400px,white);
-            background-color: black;
-        }
-        textarea{
-            resize: none;
-            outline: none;
-            border: none;
-            border-radius: 3px;
-            @include text-style(18px,400px,white);
-            background-color: black;
-        }
-    }
-    div.input-selects{
-        @include display-element-flex(center,space-around);
-        @include container(80%,10%);
+    background: teal;
+    @include container(90%,5%);
+    height: 100vh;
+    form{
+        h1{
+            text-align: center;
+            @include text-style(38px,400px,white);
 
+        }
+        @include container(70%,15%);
+        padding-top: 60px;
+        div.input-holder{
+            padding-top: 20px;
+
+            display: block;
+            @include container(80%,10%);
+            background-color: teal;
+            input{
+                outline: none;
+                border: 1px solid rgba(255, 0, 0, 0);
+                border-radius: 3px;
+                @include text-style(18px,400px,black);
+                background-color: white;
+                padding: 6px;
+                @include container(60%,20%);
+                &::placeholder{
+                    margin-left: 50%;
+                }
+            }
+            textarea{
+                resize: none;
+                outline: none;
+                border: none;
+                border-radius: 3px;
+                @include text-style(18px,400px,black);
+                background-color:white;
+                @include container(60%,20%);
+
+            }
+        }
+        div.button{
+            margin-top: 30px;
+            // @include container(0%,10%);
+            margin-left: 45%;
+            button{
+                background-color: teal;
+                outline: none;
+                border: 1px solid white;
+                border-radius: 5px;
+                @include text-style(18px,400px,white);
+                padding: 10px;
+
+            }
+
+        }
+        div.input-selects{
+            @include display-element-flex(center,space-around);
+            @include container(60%,20%);
+            div.input-holder{
+                margin: 30px 0px 0px 0px;
+                display: block;
+                select{
+                    display: block;
+                    outline: none;
+                    option{
+                        color: black;
+                        margin-top: 10px;
+                    }
+                }
+            }
+    
+        }
     }
 }

@@ -26,7 +26,7 @@ export class HeaderComponent  {
       difficulty:"",
       level:"",
       userId:"",
-      id:""
+      id:0
 
     }
   }

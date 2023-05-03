@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'harmNation';
+  white = "color:white; font-size:30px";
 }

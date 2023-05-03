@@ -3,7 +3,7 @@
 section.container {
     @include container(80%, 10%);
 
-    background-color: black;
+    background-color: teal;
 
     h1 {
         @include text-style(20px, 400px, white);

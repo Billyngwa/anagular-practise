@@ -19,15 +19,23 @@ export class AddTaskService {
     difficulty: "",
     status: "",
     userId: "",
-    // id:0
+    id:0
   }
+ 
   constructor(private localStore: DatabaseService, private userStore: UsersessionService, private userService: UserService, private sessionstore: SessionstorageService) { }
   addTask(task: Itask) {
-    
-    task["userId"] = this.userStore.getsession()?.id; 
-    // task["id"]:any = new Date().getMilliseconds();
+    const taskFromLocalStorage = this.localStore.get("Tasks");
+   let taskarr :object[]  = [];
+  if(taskFromLocalStorage.status === true){
+    taskarr = taskFromLocalStorage.data;
 
-    this.localStore.set("Task", task);
+  }
+    task["userId"] = this.userStore.getsession()?.id; 
+    task["id"] = Date.now();
+
+    taskarr.push(task);
+
+    this.localStore.set("Tasks", taskarr);
     let someValue = true;
     return someValue;
   }

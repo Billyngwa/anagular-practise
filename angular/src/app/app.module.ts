@@ -15,7 +15,6 @@ import { ViewTaskComponent } from './tasks/view-task/view-task.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-
 FormsModule
 @NgModule({
   declarations: [
@@ -43,4 +42,6 @@ FormsModule
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+}

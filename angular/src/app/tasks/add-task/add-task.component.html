@@ -1,45 +1,52 @@
 <section class="add-task-section">
-    <div class="input-holder">
+    <form action="#" method="post">
+        <h1>Fill in the fields to create a task</h1>
+        <div class="input-holder">
 
-        <input type="text" [(ngModel)]="task.taskName" name="taskName" class="form-control" placeholder="Task name">
-    </div>
-    <div class="input-holder">
-        <textarea type="text" [(ngModel)]="task.description" name="description" placeholder="Task description"
-            class="form-control" rows="5" cols="50">
+            <input type="text" [(ngModel)]="task.taskName" name="taskName" class="form-control" placeholder="Task name">
+        </div>
+        <div class="input-holder">
+            <textarea type="text" [(ngModel)]="task.description" name="description" placeholder="Task description"
+                class="form-control" rows="5" cols="50">
         </textarea>
 
-    </div>
-    <div class="input-holder">
-
-        <input type="date" [(ngModel)]="task.dueDate" name="dueDate" class="form-control" placeholder="Task due date">
-    </div>
-    <div class="input-holder">
-
-        <input type="date" name="startDate" [(ngModel)]="task.startDate" class="form-control" placeholder="Task start date">
-    </div>
-    <div class="input-selects">
-
-        <div class="input-holder">
-    
-            <select name="level" id="level" [(ngModel)]="task.level">
-        
-            </select>
         </div>
         <div class="input-holder">
-    
-            <select name="difficulty" id="difficulty" [(ngModel)]="task.difficulty">
-        
-            </select>
+
+            <input type="date" [(ngModel)]="task.dueDate" name="dueDate" class="form-control"
+                placeholder="Task due date">
         </div>
         <div class="input-holder">
-    
-            <select name="status" id="status" [(ngModel)]="task.status">
-        
-            </select>
-        </div>
-    </div>
-    <div class="button">
 
-        <button (click)="saveTask()">Save task</button>
-    </div>
+            <input type="date" name="startDate" [(ngModel)]="task.startDate" class="form-control"
+                placeholder="Task start date">
+        </div>
+        <div class="input-selects">
+
+            <div class="input-holder">
+
+                <select name="level" id="level" [(ngModel)]="task.level">
+                    <option value="" disabled="disabled">Select Task Level</option>
+                    <option *ngFor=" let level of taskLevel" [value]="level">{{level}}</option>
+                </select>
+            </div>
+            <div class="input-holder">
+
+                <select name="difficulty" id="difficulty" [(ngModel)]="task.difficulty">
+                    <option value="" disabled="disabled">Select Task Difficulty</option>
+                    <option *ngFor="let difficulty of taskDifficulty" [value]="difficulty">{{difficulty}}</option>
+                </select>
+            </div>
+            <div class="input-holder">
+                <select name="status" id="status" [(ngModel)]="task.status" #task.status>
+                    <option value="" disabled="disabled">Select Task Status</option>
+                    <option *ngFor="let status of taskStatus" [value]="status">{{status}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="button">
+
+            <button (click)="saveTask()">Save task</button>
+        </div>
+    </form>
 </section>

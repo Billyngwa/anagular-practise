@@ -19,10 +19,13 @@ task:Itask={
   level:"",
   difficulty: "",
   status: "",
-  userId: ""
+  userId: "",
+  id:0
 }
+  taskLevel = ["COMPLETED","PROGRESS","NOT_STARTED"];
+  taskDifficulty = ["HIGH","MEDIUM","STANDARD"];
+  taskStatus = ["SUCCESS","FAILED","PROGRESS","PAUSED"];
   saveTask(){
     this.addTask.addTask(this.task);
-    
   }
 }

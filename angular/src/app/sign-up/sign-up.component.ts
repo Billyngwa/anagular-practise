@@ -23,7 +23,8 @@ export class SignUpComponent {
       status:"",
       difficulty:"",
       level:"",
-      userId:""
+      userId:"",
+      id:0
 
     }
   }

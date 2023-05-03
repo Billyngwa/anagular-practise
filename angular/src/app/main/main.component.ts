@@ -23,7 +23,8 @@ export class MainComponent implements OnInit{
       status:"",
       difficulty:"",
       level:"",
-      userId:""
+      userId:"",
+      id:0
 
     }
   };

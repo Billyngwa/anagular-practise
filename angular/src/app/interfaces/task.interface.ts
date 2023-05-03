@@ -12,5 +12,5 @@ export interface Itask{
     userId: string;
     image?: string;
     resources?: object | [],
-    id:string
+    id:number
 }
