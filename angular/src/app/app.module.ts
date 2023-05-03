@@ -13,6 +13,9 @@ import { EditTaskComponent } from './tasks/edit-task/edit-task.component';
 import { TaskMainComponent } from './tasks/task-main/task-main.component';
 import { ViewTaskComponent } from './tasks/view-task/view-task.component';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
 FormsModule
 @NgModule({
   declarations: [
@@ -26,12 +29,15 @@ FormsModule
     AddTaskComponent,
     EditTaskComponent,
     TaskMainComponent,
-    ViewTaskComponent
+    ViewTaskComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,   
+     MatSlideToggleModule
+
 
   ],
   providers: [],

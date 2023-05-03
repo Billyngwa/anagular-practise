@@ -16,6 +16,10 @@ export class UserService {
   signIn(user: IUser) {
     const getUsersInLocalStorage = this.databaseService.get("Users");
     let loginStatus;
+    if(getUsersInLocalStorage.data == null){
+      alert(`Account Does not exist`);
+      return
+    }
     for (const userObject of getUsersInLocalStorage.data) {
       if (user["email"] === userObject["email"] && user["password"] === userObject["password"]) {
         alert(`${userObject["name"]} logged in with success`);
@@ -32,9 +36,16 @@ export class UserService {
   signUp(user: IUser) {
     const getUsersInLocalStorage = this.databaseService.get("Users");
     let usersInLocalStorage: Object[] = [];
+    console.log(typeof usersInLocalStorage);
+    
     if (getUsersInLocalStorage.status === true) {
-
+    console.log(typeof getUsersInLocalStorage.data);
+    
       usersInLocalStorage = getUsersInLocalStorage.data;
+      console.log(typeof usersInLocalStorage);
+      
+      console.log(usersInLocalStorage);
+      
       // return usersInLocalStorage ;
     }
     for (const users of usersInLocalStorage) {
@@ -43,12 +54,9 @@ export class UserService {
         return;
       }
       if (user.email === users["email" as keyof object]) {
-        alert("User exist");
+        alert("User exist"); 
         return;
       } 
-      // else {
-
-      // }
       // return;
     }
     let arrLength: number = usersInLocalStorage.length;
@@ -63,41 +71,4 @@ export class UserService {
     this.databaseService.set(`Users`, usersInLocalStorage);
     return;
   }
-  // this method gets the userTask key from the user object and returns an array of objects.
-  //secondly the return value of this method is used by getUserTask() method
-  // getUserTaskKey(): object {
-  //   let taskKeyValue
-  //   const GetUsersInLocalStorage = this.databaseService.get("Users"); //this line of code returns an object with status and data keys. data is the property we need while status is just a boolean
-  //   let UsersInLocalStorageArray :object[] = []
-  //   if (GetUsersInLocalStorage.status == true) {
-  //     UsersInLocalStorageArray = GetUsersInLocalStorage.data;
-
-  //   }
-  //   for (const aUser of UsersInLocalStorageArray) {
-  //     taskKeyValue = aUser["userTasks" as keyof object]; // the return value here is an object of type Itask;
-  //     console.log(taskKeyValue);
-  //   }
-
-  //   return {
-  //     key:'key',
-  //     data:taskKeyValue
-  //   };
-  // }
-
-  // getUserTask() {//we want to try to push a new task into users array
-  //   let taskArray : object[]=[];
-  //   let keyValue = this.getUserTaskKey();
-  //    if(keyValue["key" as keyof object] === "key"){
-  //     taskArray = keyValue["data" as keyof object]; // here we are pushing the existing tasks into an array
-  //    }else{
-  //     return;
-  //    }
-
-  //   console.log(keyValue);
-  //   return {
-  //     status:"SUCCESS",
-  //     data:taskArray
-  //   }
-
-  // }
 }

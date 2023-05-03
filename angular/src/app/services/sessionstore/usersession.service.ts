@@ -21,6 +21,10 @@ export class UsersessionService {
   // addValue = this.sessionHolder.asObservable(); // addvalue acts as an observable wher components can subscribe to changes
   crtsession(user: IUser) {
     const getUsersInLocalStorage = this.database.get("Users");
+    if(getUsersInLocalStorage.data == null){
+      alert(`An error occured`);
+      return;
+    }
     for (const userObject of getUsersInLocalStorage.data) {
 
       if (user["email"] === userObject["email"] && user["password"] === userObject["password"]) {
@@ -37,8 +41,7 @@ export class UsersessionService {
   }
   getsession() {
     let userInScope = this.sessionstore.get("loggedUser");
-    console.log(userInScope);
-    console.log(Object.keys(userInScope).length);
+    console.log(userInScope)
     
     if (userInScope.status) {
       let someValue = {
