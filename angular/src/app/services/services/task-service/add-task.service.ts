@@ -23,6 +23,7 @@ export class AddTaskService {
   }
  
   constructor(private localStore: DatabaseService, private userStore: UsersessionService, private userService: UserService, private sessionstore: SessionstorageService) { }
+ 
   addTask(task: Itask) {
     const taskFromLocalStorage = this.localStore.get("Tasks");
    let taskarr :object[]  = [];
@@ -39,7 +40,30 @@ export class AddTaskService {
     let someValue = true;
     return someValue;
   }
-
+  getTasks(userId:number){
+    const tasksFromLocalStorage = this.localStore.get("Tasks").data;
+    console.log(tasksFromLocalStorage);
+    console.log('this is task ',userId);
+    
+    userId = this.userStore.getsession()?.id; 
+    console.log(userId);
+    
+    let arrResultant:object[] = [];
+    for(const atask of tasksFromLocalStorage){
+      if(userId === atask["userId" as keyof object] ){
+        console.log(userId,atask["userId"]);
+        arrResultant.push(atask) ;
+        console.log(arrResultant);
+        
+        
+      }
+    }
+    
+   
+    
+    console.log(arrResultant);
+    return arrResultant;
+  }
   delTask(task: Itask) { }
   editTask(task: Itask) { }
   viewTask(task: Itask) { }

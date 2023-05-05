@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { TaskLevel } from 'src/app/constants/constants.enum';
 import { Itask } from 'src/app/interfaces/task.interface';
 import { AddTaskService } from 'src/app/services/services/task-service/add-task.service';
@@ -10,7 +11,7 @@ import { AddTaskService } from 'src/app/services/services/task-service/add-task.
 })
 
 export class AddTaskComponent {
-  constructor(private addTask:AddTaskService){}
+  constructor(private addTask:AddTaskService, private myrouter:Router){}
 task:Itask={
   taskName:'',
   description: '',
@@ -27,5 +28,6 @@ task:Itask={
   taskStatus = ["SUCCESS","FAILED","PROGRESS","PAUSED"];
   saveTask(){
     this.addTask.addTask(this.task);
+    this.myrouter.navigate([`/view-task/${this.task.userId}`])
   }
 }

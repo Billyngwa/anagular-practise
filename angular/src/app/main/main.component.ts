@@ -30,6 +30,7 @@ export class MainComponent implements OnInit{
   };
 
   constructor(private session : UsersessionService){}
+  
 
   ngOnInit(): void {
     

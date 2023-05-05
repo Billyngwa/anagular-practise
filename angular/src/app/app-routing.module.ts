@@ -36,7 +36,7 @@ const routes: Routes = [
     component:EditTaskComponent
   },
   {
-    path:"view-task",
+    path:"view-task/:userId",
     component:ViewTaskComponent,
   },
   {

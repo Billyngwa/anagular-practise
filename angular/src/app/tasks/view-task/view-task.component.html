@@ -1,1 +1,15 @@
 <p>view-task works!</p>
+<section class="main-section">
+    <div class="tasks-holder" *ngFor="let task of tasks">
+        <div class="name">
+            <span>{{task.taskName}}</span>
+        </div>
+        <div class="description">
+            <span>{{task.description}}</span>
+        </div>
+        <div class="edit-dlt">
+            <button type="button"><a routerLink="/edit-task">Edit</a></button>
+            <button type="button" (click)="searchId()">Delete</button>
+        </div>
+    </div>
+</section>
