@@ -20,8 +20,8 @@ import { MainLandingComponent } from './main-landing/main-landing.component';
 import {AngularFireModule} from '@angular/fire/compat';
 import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
 import {AngularFireAnalyticsModule} from '@angular/fire/compat/analytics'
-
 import { environment } from './environmment/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
