@@ -26,13 +26,21 @@ export class ViewTaskComponent implements OnInit {
 taskDescription:string="";
 
   ngOnInit(): void {
-    let arrTasks: any[] = this.taskService.getTasks(this.task["userId" as keyof object]);
+    let arrTasks:any = this.taskService.getTasks(this.task["userId" as keyof object]);
    
     this.tasks = [...this.tasks,...arrTasks];
   }
   
   
   searchId(){
-    this.taskService.getTasks(this.task["userId" as keyof object]);
+    this.taskService.delTask(this.task["userId" as keyof object],this.task["id"]);
+    this.myRouter.navigate([`/view-task/:${this.task["id"]}`]);
+    
+  }
+  viewTaskDetails(taskId:number){
+    // this.taskService.viewTaskDetails(this.task["userId" as keyof object],this.task)
+    this.myRouter.navigate([`/task-details/${taskId}`]);
+    console.log(this.task);
+    
   }
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from '../services/userService/user.service';
 import { IUser } from '../interfaces/user.interface';
+import { Router } from '@angular/router';
 UserService
 
 @Component({
@@ -9,7 +10,7 @@ UserService
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent {
-  constructor(private store : UserService){}
+  constructor(private store : UserService, private myRoute:Router){}
   user: IUser = {
     id: 0,
     name: "",
@@ -47,7 +48,6 @@ export class SignUpComponent {
     }
     
     this.store.signUp(this.user);
-    window.location.replace("/sign-in");
-
+    this.myRoute.navigate(["/sign-in"]);
   }
 }

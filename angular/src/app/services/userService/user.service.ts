@@ -3,6 +3,8 @@ import { DatabaseService } from '../localstore/database.service';
 import { IUser } from 'src/app/interfaces/user.interface';
 import { BooleanConstants } from 'src/app/constants/booleanconstants.enum';
 import { SessionstorageService } from '../sessionstore/sessionstorage.service';
+import { Route, Router } from '@angular/router';
+import {} from '@angular/fire/compat/auth'
 DatabaseService
 BooleanConstants
 @Injectable({
@@ -10,7 +12,7 @@ BooleanConstants
 })
 export class UserService {
 
-  constructor(private databaseService: DatabaseService, private session: SessionstorageService) { }
+  constructor(private databaseService: DatabaseService, private myRoute:Router, private session: SessionstorageService) { }
   bool = new BooleanConstants();
 
   signIn(user: IUser) {
@@ -23,15 +25,23 @@ export class UserService {
     for (const userObject of getUsersInLocalStorage.data) {
       if (user["email"] === userObject["email"] && user["password"] === userObject["password"]) {
         alert(`${userObject["name"]} logged in with success`);
-        window.location.replace("");
+        this.bool.loginStatus = true;
+        console.log(`login status: ${this.bool.loginStatus}`);
+      this.myRoute.navigate(["/main"]);
+
         return;
       }
       else {
         continue;
       }
-      return;
     }
+    
     alert(`password or email do not match`);
+    this.bool.loginStatus = false;
+    console.log("Login status :",this.bool.loginStatus);
+    
+    return;
+
   }
   signUp(user: IUser) {
     const getUsersInLocalStorage = this.databaseService.get("Users");

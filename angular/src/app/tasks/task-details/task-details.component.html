@@ -1,0 +1,36 @@
+<section class="details-section">
+    <table>
+        <tbody>
+          <thead>Task Details</thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Task Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">start Date</th>
+            <th scope="col">Due date</th>
+            <th scope="col">Difficulty</th>
+            <th scope="col">Level</th>
+            <th scope="col">State</th>
+
+          </tr>
+          <tr>
+            <td>{{task.id}}</td>
+            <td>{{task.taskName}}</td>
+            <td>{{task.description}}</td>
+            <td>{{task.startDate}}</td>
+            <td>{{task.dueDate}}</td>
+            <td>{{task.difficulty}}</td>
+            <td>{{task.level}}</td>
+            <td>{{task.status}}</td>
+          </tr>
+        </tbody>
+    </table>
+    <div>
+      <p class="edit">
+        <button class="edit-button"><a routerLink="/task/edit-task">Edit</a></button>
+      </p>
+      <p class="edit">
+        <button class="delete-button">Delete</button>
+      </p>
+    </div>
+</section>

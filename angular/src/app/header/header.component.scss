@@ -11,13 +11,14 @@ p{
     font-size: 30px;
 }
 section.header-section{
-    @include container(80%,10%);
+    @include container(90%,5%);
     background-color: black;
 
     nav{
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-right: 10%;
         div.logo-division{
             p{
                 background-color: white;
@@ -31,6 +32,7 @@ section.header-section{
             }
         }
         div.nav-pannel{
+            width: 80%;
             ul{
                 // display: flex;
                 // list-style-type: none;
@@ -47,5 +49,11 @@ section.header-section{
                 }
             }
         }
+    }
+    button{
+        background-color: none;
+        outline: none;
+        padding: 10px;
+        margin-left: 3%;
     }
 }

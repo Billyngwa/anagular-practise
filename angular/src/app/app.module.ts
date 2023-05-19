@@ -15,7 +15,13 @@ import { ViewTaskComponent } from './tasks/view-task/view-task.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-FormsModule
+import { TaskDetailsComponent } from './tasks/task-details/task-details.component';
+import { MainLandingComponent } from './main-landing/main-landing.component';
+import {AngularFireModule} from '@angular/fire/compat';
+import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
+import {AngularFireAnalyticsModule} from '@angular/fire/compat/analytics'
+
+import { environment } from './environmment/environment';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,15 +35,18 @@ FormsModule
     EditTaskComponent,
     TaskMainComponent,
     ViewTaskComponent,
+    TaskDetailsComponent,
+    MainLandingComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,   
-     MatSlideToggleModule
-
-
+     MatSlideToggleModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireAnalyticsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

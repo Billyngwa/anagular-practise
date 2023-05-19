@@ -11,8 +11,13 @@
         <div class="el-h">
             <input type="password" [(ngModel)]="user.password" name="password" placeholder="password" required="required"/>
         </div>
-        <div class="el-h">
-            <button type="submit" (click)="Register()">Register</button>
+        <div class="reg-sign-in">
+            <div class="el-h">
+                <button type="submit" (click)="Register()">Register</button>
+            </div>
+            <div class="el-h">
+                <button type="button"><a routerLink="/sign-in">Sign In</a></button>
+            </div>
         </div>
     </form>
 </section>

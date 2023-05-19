@@ -57,3 +57,23 @@
             }
         }
     }
+    div.reg-sign-in{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        .el-h {
+          margin-left: 60px;
+          button{
+            outline:none;
+            border: none;
+            background-color: black;
+            padding:4px;
+            border-radius: 5px;
+
+            a{
+                @include text-style(18px,300px,white);
+                text-decoration: none;
+            }
+          }
+        }
+    }
