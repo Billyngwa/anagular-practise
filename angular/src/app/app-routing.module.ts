@@ -10,6 +10,7 @@ import { EditTaskComponent } from './tasks/edit-task/edit-task.component';
 import { ViewTaskComponent } from './tasks/view-task/view-task.component';
 import { TaskDetailsComponent } from './tasks/task-details/task-details.component';
 import { MainLandingComponent } from './main-landing/main-landing.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -61,6 +62,10 @@ const routes: Routes = [
   {
     path:"sign-up",
     component:SignUpComponent,
+  },
+  {
+    path:"**",
+    component:PageNotFoundComponent
   }
 ];
 

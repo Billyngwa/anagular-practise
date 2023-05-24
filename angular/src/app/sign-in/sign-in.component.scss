@@ -1,24 +1,29 @@
 @import "../../styles.scss";
 section.hero{
-    background-color: teal;
+    background-color: white;
     height: 100vh;
     @include container(90%,5%);
+    padding-top: 10px;
   
     form{
-        @include container(35%,35%);
-        padding-top: 10%;
+        @include container(55%,20%);
+        padding-bottom: 30px;
+        background-color: rgba(10, 10, 84, 0.858);
+        margin-top: 10%;
+        border-radius: 15px;
         h1{
-            margin-left: 25%;
+            text-align: center;
             @include text-style(25px,300px,white);
-            padding-bottom: 10%;
+            padding-bottom: 1%;
+            padding-top: 20px;
         }
         div{
-            width: 98%;
-            margin-top: 30px;
+            width: 60%;
+            margin-left: 20%;
+            margin-top: 10px;
             input{
                 width: 100%;
                 border-radius: 6px;
-                border: 1px solid red;
                 outline: none;
                 padding: 8px;
                 @include text-style(18px,300px,white);
@@ -27,15 +32,52 @@ section.hero{
             }
            
         }
+        div.but{
+            width: 80%;
+            margin-left: 10%;
+            // background-color: red;
+            display: flex;
+            // justify-content: space-between;
+            align-items: center;
+            
+        div.el-h{
+            width: 80%;
+            margin-left: 10%;
+            p{
+                @include text-style(10px,200px,white);
+              
+                    a{                   
+                         @include text-style(18px,300px,white);
+                        text-decoration: none;
+                        padding: 5px;
+                        background-color: black;
+                        outline:none;
+                        border-radius: 6px;
+                    }
+                
+
+            }
+            button[type="submit"]{
+                padding: 5px;
+                margin-left: 0%;
+                background-color: black;
+                outline:none;
+                border-radius: 6px;
+                @include text-style(18px,300px,white);
+
+            }
+        }
         div.el-h{
             p{
                 @include text-style(18px,300px,white);
+                display: flex;
                 button[type="button"]{
                     padding: 5px;
                     margin-left: 40%;
                     background-color: black;
                     outline:none;
                     border-radius: 6px;
+                    margin-right: 40%;
                     // border: none;
                     
                     a{                   
@@ -53,6 +95,27 @@ section.hero{
                 border-radius: 6px;
                 @include text-style(18px,300px,white);
 
+            }
+        }
+        }
+    }
+}
+
+@media (max-width:750px){
+    section.hero{
+
+        form{
+            @include container(80%,10%);
+            padding-bottom: 30px;
+            div.el-h{
+                width: 100%;
+                margin-left: 10%;
+                input{
+                    width: 80%;
+                }
+            }
+            div.but{
+                gap: 50px;
             }
         }
     }

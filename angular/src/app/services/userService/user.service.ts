@@ -4,18 +4,61 @@ import { IUser } from 'src/app/interfaces/user.interface';
 import { BooleanConstants } from 'src/app/constants/booleanconstants.enum';
 import { SessionstorageService } from '../sessionstore/sessionstorage.service';
 import { Route, Router } from '@angular/router';
-import {} from '@angular/fire/compat/auth'
+import { Firestore, collection, doc, getDoc, getDocs, getFirestore, setDoc,addDoc } from '@angular/fire/firestore';
+import { Observable, from } from 'rxjs';
+import {AngularFireModule} from '@angular/fire/compat'
+import { AuthenticationServiceService } from '../authentication-service.service';
 DatabaseService
 BooleanConstants
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-
-  constructor(private databaseService: DatabaseService, private myRoute:Router, private session: SessionstorageService) { }
+  constructor(
+    private databaseService: DatabaseService, 
+    private myRoute:Router, 
+    private session: SessionstorageService,
+    private firestore : Firestore,
+    private authService : AuthenticationServiceService
+    ) 
+    { }
   bool = new BooleanConstants();
+    db = getFirestore();
+  dbref = collection(this.db,'Users');
+ newDoc:any;
+ 
+// userdata = {
+//   name:'billy',
+//   password:'ttgm'
+// }
+
+// an observable is an invokable function which can be subscribed to
+addUser(user: IUser):Observable<any> { // add user function adds a user of type IUser to firestore
+  // the function returns an observable. (()) 
+  // const docref = doc(this.dbref,'user1');
+  return from(addDoc(this.dbref,user)); // the from method converts the setDoc into an observable
+}
+
+   async getUser(){
+  const docSnap = await getDocs(this.dbref) ;
+  docSnap.forEach(doc =>{
+    console.log(doc);
+    
+  })
+}
+
 
   signIn(user: IUser) {
+  //   onSnapshot(this.dbref, docSnap =>{
+  //     docSnap.forEach(doc =>{
+  //       console.log(doc.data());
+        
+  //     })
+  //   })
+  //  this.newDoc = addDoc(this.dbref,this.userdata).then(docRef => {
+  //     alert("Document has been added successfully");
+  //   })
+  this.authService.login(user);
     const getUsersInLocalStorage = this.databaseService.get("Users");
     let loginStatus;
     if(getUsersInLocalStorage.data == null){
@@ -44,6 +87,10 @@ export class UserService {
 
   }
   signUp(user: IUser) {
+   this.authService.signUp(user);
+   this.addUser(user);
+   this.getUser();
+
     const getUsersInLocalStorage = this.databaseService.get("Users");
     let usersInLocalStorage: Object[] = [];
     console.log(typeof usersInLocalStorage);

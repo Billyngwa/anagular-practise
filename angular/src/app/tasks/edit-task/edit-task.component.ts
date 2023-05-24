@@ -6,7 +6,7 @@ import { AddTaskService } from 'src/app/services/services/task-service/add-task.
 @Component({
   selector: 'app-edit-task',
   templateUrl: './edit-task.component.html',
-  styleUrls: ['./edit-task.component.scss']
+  styleUrls: ['./edit-task.component.scss','../add-task/add-task.component.scss']
 })
 export class EditTaskComponent implements OnInit {
 

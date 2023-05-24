@@ -10,14 +10,17 @@
             <input type="password" [(ngModel)]="user.password" name="password" placeholder="password" required="re
             "/>
         </div>
-        <div class="el-h">
-            <p>
-                Haven't account? <button type ="button" ><a routerLink="/sign-up">Register</a></button>
+        <div class="but">
 
-            </p>
-        </div>
-        <div class="el-h">
-            <button type="submit" (click)="submitForm()">Login</button>
+            <div class="el-h">
+                <p>
+                    Haven't account?<a routerLink="/sign-up">Register</a>
+    
+                </p>
+            </div>
+            <div class="el-h">
+                <button type="submit" (click)="submitForm()">Login</button>
+            </div>
         </div>
     </form>
 </section>

@@ -21,6 +21,12 @@ import {AngularFireModule} from '@angular/fire/compat';
 import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
 import {AngularFireAnalyticsModule} from '@angular/fire/compat/analytics'
 import { environment } from './environmment/environment';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { provideFirestore } from '@angular/fire/firestore';
+import { getFirestore } from 'firebase/firestore';
+import { provideAuth } from '@angular/fire/auth';
+import { getAuth } from 'firebase/auth';
+import {initializeApp,provideFirebaseApp} from '@angular/fire/app'
 
 @NgModule({
   declarations: [
@@ -37,6 +43,7 @@ import { environment } from './environmment/environment';
     ViewTaskComponent,
     TaskDetailsComponent,
     MainLandingComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +52,9 @@ import { environment } from './environmment/environment';
     BrowserAnimationsModule,   
      MatSlideToggleModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    provideFirebaseApp( () => initializeApp(environment.firebaseConfig)),
+    provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth()),
     AngularFirestoreModule,
     AngularFireAnalyticsModule
   ],

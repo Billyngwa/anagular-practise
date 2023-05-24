@@ -1,0 +1,88 @@
+@import "../../styles.scss";
+section{
+    // @include container(95%,2.5%);
+    background-image: url('../../assets/images/bkg.jpg');
+    height: 100vh;
+    background-size: contain;
+    div.backcolor{
+        background-color: rgba(10, 10, 84, 0.858);
+        height: 100%;
+    }
+    div.ico{
+        display: flex;
+        flex-grow: initial;
+        justify-content: space-between;
+        .left{
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+            img{
+                width: 100%;
+                height: 100%;
+                border-radius: 5px;
+            }
+        }
+             .right{
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+
+            img{
+                width: 100%;
+                height: 100%;
+                border-radius: 5px;
+
+            }
+        }
+    }
+    button{
+        background-color: white;
+        padding: 20px;
+        border-radius: 50px;
+        outline: none;
+        border: 3px solid blue;
+        &:hover{
+            transform: scale(2);
+            transition: 1.1s;
+            margin-top: 7px;
+            transition: 2s;
+        }
+        margin-left: 40%;
+        margin-top: 30%;
+        a{
+            @include text-style(38px,400px,rgba(2, 2, 71, 0.794));
+            text-decoration: none;
+            font-weight: 600;
+        }
+    }
+
+}
+
+@media (max-width:750px) {
+    section{
+        .right{
+            display: none;
+        }
+        .left{
+            display: none;
+        }
+        button{
+            background-color: white;
+            padding: 3px;
+            border-radius: 50px;
+            outline: none;
+            border: 3px solid blue;
+            &:hover{
+                transition: 2s;
+                margin-top: 2px;
+            }
+            margin-left: 30%;
+            margin-top: 60%;
+            a{
+                @include text-style(38px,400px,rgba(2, 2, 71, 0.794));
+                text-decoration: none;
+                font-weight: 600;
+            }
+        }
+    }
+}

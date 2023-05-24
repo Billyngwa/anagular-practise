@@ -4,4 +4,10 @@
 @import "./assets/styles/settings/reset";
 @import "./assets/styles/settings/mixins";
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+ }
+ 
+header, section, footer, aside, nav, article, figure, figcaption {
+    display: block;
+} 
