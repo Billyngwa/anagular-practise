@@ -1,79 +1,100 @@
 @import "../../styles.scss";
-    section.hero{
-        background-color: teal;
-        height: 100vh;
-        @include container(90%,5%);
-      
-        form{
-            @include container(35%,35%);
-            padding-top: 3%;
-            h1{
-                text-align: center;
-                padding-bottom: 10px;
-                @include text-style(25px,300px,white);
+
+section.hero {
+    background-color: teal;
+    height: 100vh;
+    @include container(90%, 5%);
+
+    form {
+        @include container(35%, 35%);
+        padding-top: 3%;
+
+        h1 {
+            text-align: center;
+            padding-bottom: 10px;
+            @include text-style(25px, 300px, white);
+        }
+
+        div {
+            width: 98%;
+            margin-top: 10px;
+
+            input {
+                width: 100%;
+                border-radius: 6px;
+                // border: 1px solid red;
+                outline: none;
+                padding: 8px;
+                @include text-style(18px, 300px, white);
+                background-color: rgba(0, 0, 0, 0.866);
+
             }
-            div{
-                width: 98%;
-                margin-top: 10px;
-                input{
-                    width: 100%;
-                    border-radius: 6px;
-                    // border: 1px solid red;
-                    outline: none;
-                    padding: 8px;
-                    @include text-style(18px,300px,white);
-                    background-color: rgba(0, 0, 0, 0.866);
-    
-                }
-               
-            }
-            div.el-h{
-                p{
-                    @include text-style(18px,300px,white);
-                    button[type="button"]{
-                        padding: 5px;
-                        margin-left: 40%;
-                        background-color: black;
-                        outline:none;
-                        border-radius: 6px;
-                        // border: none;
-                        
-                        a{                   
-                             @include text-style(18px,300px,white);
-                            text-decoration: none;
-                        }
-                    }
-    
-                }
-                button[type="submit"]{
+
+        }
+
+        div.el-h {
+            p {
+                @include text-style(18px, 300px, white);
+
+                button[type="button"] {
                     padding: 5px;
                     margin-left: 40%;
                     background-color: black;
-                    outline:none;
+                    outline: none;
                     border-radius: 6px;
-                    @include text-style(18px,300px,white);
-    
+
+                    a {
+                        @include text-style(18px, 300px, white);
+                        text-decoration: none;
+                    }
                 }
+
+            }
+
+            button[type="submit"] {
+                padding: 5px;
+                margin-left: 40%;
+                background-color: black;
+                outline: none;
+                border-radius: 6px;
+                @include text-style(18px, 300px, white);
+
             }
         }
     }
-    div.reg-sign-in{
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        .el-h {
-          margin-left: 60px;
-          button{
-            outline:none;
+}
+
+div.reg-sign-in {
+    display: block;
+
+    p {
+        @include text-style(15px, 200px, black);
+        background-color: white;
+        padding: 5px;
+        border-radius: 7px;
+        gap: 50px;
+        a {
+            @include text-style(17px, 300px, black);
+            text-decoration: underline;
+        }
+
+
+    }
+
+    .el-h {
+        margin-left: 60px;
+
+        button {
+            outline: none;
             border: none;
             background-color: black;
-            padding:4px;
+            padding: 4px;
             border-radius: 5px;
 
-            a{
-                @include text-style(18px,300px,white);
+            a {
+                @include text-style(18px, 300px, white);
                 text-decoration: none;
             }
-          }
         }
     }
+}

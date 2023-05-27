@@ -1,11 +1,11 @@
 @import "../../styles.scss";
 section{
     // @include container(95%,2.5%);
-    background-image: url('../../assets/images/bkg.jpg');
+    background-image: url('../../assets/images/tasky.jfif');
     height: 100vh;
-    background-size: contain;
+    background-size: cover;
     div.backcolor{
-        background-color: rgba(10, 10, 84, 0.858);
+        background-color: rgba(24, 49, 83, 0.58);
         height: 100%;
     }
     div.ico{
@@ -37,7 +37,7 @@ section{
     }
     button{
         background-color: white;
-        padding: 20px;
+        padding: 10px;
         border-radius: 50px;
         outline: none;
         border: 3px solid blue;
@@ -47,8 +47,8 @@ section{
             margin-top: 7px;
             transition: 2s;
         }
-        margin-left: 40%;
-        margin-top: 30%;
+        margin-left: 39%;
+        margin-top: 37%;
         a{
             @include text-style(38px,400px,rgba(2, 2, 71, 0.794));
             text-decoration: none;

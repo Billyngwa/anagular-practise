@@ -1,121 +1,150 @@
 @import "../../styles.scss";
-section.hero{
-    background-color: white;
+
+section.hero {
+    // background-color: white;
     height: 100vh;
-    @include container(90%,5%);
+    @include container(90%, 5%);
     padding-top: 10px;
-  
-    form{
-        @include container(55%,20%);
+    background-image: url('../../assets/images/bkg.jpg');
+    background-size: cover;
+
+    form {
+        @include container(55%, 30%);
         padding-bottom: 30px;
-        background-color: rgba(10, 10, 84, 0.858);
+        background-color: rgba(24, 49, 83, 0.971);
         margin-top: 10%;
         border-radius: 15px;
-        h1{
+
+        div.user-logo {
+            width: 10%;
+            margin-left: 45%;
+            height: 30px;
+            padding: 3px;
+            margin-bottom: 10%;
+            color: white;
+            i {
+                font-size: 60px;
+                width: 100%;
+
+            }
+        }
+
+        h1 {
             text-align: center;
-            @include text-style(25px,300px,white);
+            @include text-style(25px, 300px, white);
             padding-bottom: 1%;
             padding-top: 20px;
         }
-        div{
+
+        div {
             width: 60%;
             margin-left: 20%;
-            margin-top: 10px;
-            input{
+            margin-top: 18px;
+
+            input {
                 width: 100%;
                 border-radius: 6px;
                 outline: none;
                 padding: 8px;
-                @include text-style(18px,300px,white);
+                @include text-style(18px, 300px, white);
                 background-color: rgba(0, 0, 0, 0.866);
 
             }
-           
-        }
-        div.but{
-            width: 80%;
-            margin-left: 10%;
-            // background-color: red;
-            display: flex;
-            // justify-content: space-between;
-            align-items: center;
-            
-        div.el-h{
-            width: 80%;
-            margin-left: 10%;
-            p{
-                @include text-style(10px,200px,white);
-              
-                    a{                   
-                         @include text-style(18px,300px,white);
-                        text-decoration: none;
-                        padding: 5px;
-                        background-color: black;
-                        outline:none;
-                        border-radius: 6px;
-                    }
-                
 
-            }
-            button[type="submit"]{
-                padding: 5px;
+        }
+
+        div.but {
+            width: 60%;
+            margin-left: 20%;
+            display: block;
+
+            div.el-h {
+                width: 100%;
                 margin-left: 0%;
-                background-color: black;
-                outline:none;
-                border-radius: 6px;
-                @include text-style(18px,300px,white);
+                padding: 10px;
 
-            }
-        }
-        div.el-h{
-            p{
-                @include text-style(18px,300px,white);
-                display: flex;
-                button[type="button"]{
+                p {
+                    @include text-style(15px, 200px, black);
+                    background-color: white;
                     padding: 5px;
-                    margin-left: 40%;
-                    background-color: black;
-                    outline:none;
-                    border-radius: 6px;
-                    margin-right: 40%;
-                    // border: none;
-                    
-                    a{                   
-                         @include text-style(18px,300px,white);
-                        text-decoration: none;
+                    border-radius: 7px;
+                    gap: 50px;
+                    width: 100%;
+
+                    a {
+                        @include text-style(14px, 300px, black);
+                        text-decoration: underline;
+                        padding: 5px;
                     }
+
+
                 }
 
-            }
-            button[type="submit"]{
-                padding: 5px;
-                margin-left: 40%;
-                background-color: black;
-                outline:none;
-                border-radius: 6px;
-                @include text-style(18px,300px,white);
+                button[type="submit"] {
+                    padding: 5px;
+                    margin-left: 30%;
+                    background-color: black;
+                    outline: none;
+                    border-radius: 6px;
+                    @include text-style(18px, 300px, white);
 
+                }
             }
-        }
+
+          
         }
     }
 }
 
-@media (max-width:750px){
-    section.hero{
+@media (max-width:750px) {
+    section.hero {
 
-        form{
-            @include container(80%,10%);
+        form {
+            div.user-logo {
+                padding: 3px;
+                margin-bottom: 15%;
+            }
+            @include container(80%, 10%);
             padding-bottom: 30px;
-            div.el-h{
+
+            div.el-h {
                 width: 100%;
                 margin-left: 10%;
-                input{
+
+                input {
                     width: 80%;
                 }
             }
-            div.but{
+
+            div.but {
                 gap: 50px;
+                display: block;
+                @include container(100%, 0%);
+
+                div.el-h {
+                    // @include container(80%, 10%);
+                    width: 100%;
+                    p {
+                        display: flex;
+                        justify-content: space-around;
+                        align-items: center;
+                        width: 80%;
+                        background-color: white;
+                        border-radius: 7px;
+                        @include text-style(16px, 300px, black);
+
+                        a{
+                            color: black;
+
+                        }
+                    }
+
+                    button[type = "submit"] {
+                        padding: 2px;
+                        margin-left: 30%;
+                        @include text-style(18px, 300px, white);
+                    }
+                }
             }
         }
     }

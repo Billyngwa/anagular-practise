@@ -1,7 +1,9 @@
 <section class="hero">
     <form action="">
         <h1 class="heading">Register</h1>
-
+        <div class="user-logo">
+            <i class="fa-regular fa-user"></i>
+        </div>
         <div class="el-h">
             <input type="text" [(ngModel)]="user.name" name="name" placeholder="User name" required="required"/>
         </div>
@@ -12,11 +14,11 @@
             <input type="password" [(ngModel)]="user.password" name="password" placeholder="password" required="required"/>
         </div>
         <div class="reg-sign-in">
+            <p>
+               Already Have Account? <a routerLink="/sign-in">Sign In</a>
+            </p>
             <div class="el-h">
                 <button type="submit" (click)="Register()">Register</button>
-            </div>
-            <div class="el-h">
-                <button type="button"><a routerLink="/sign-in">Sign In</a></button>
             </div>
         </div>
     </form>
