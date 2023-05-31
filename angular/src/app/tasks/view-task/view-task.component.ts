@@ -33,7 +33,7 @@ taskDescription:string="";
   
   
   searchId(){
-    this.taskService.delTask(this.task["userId" as keyof object],this.task["id"]);
+    this.taskService.delTask(this.task["userId" as keyof object],this.task);
     this.myRouter.navigate([`/view-task/:${this.task["id"]}`]);
     
   }

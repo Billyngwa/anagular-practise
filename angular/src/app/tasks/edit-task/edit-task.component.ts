@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Itask } from 'src/app/interfaces/task.interface';
 import { AddTaskService } from 'src/app/services/services/task-service/add-task.service';
 
@@ -10,12 +10,7 @@ import { AddTaskService } from 'src/app/services/services/task-service/add-task.
 })
 export class EditTaskComponent implements OnInit {
 
-  constructor(private taskService:AddTaskService,private activeRoute:ActivatedRoute){}
-  ngOnInit(): void {
-    this.activeRoute.params.subscribe(task => {
-      
-    })
-  }
+  constructor(private taskService:AddTaskService,private activeRoute:ActivatedRoute,private myRoute:Router){}
   task:Itask ={
     taskName:'',
     description: '',
@@ -27,11 +22,23 @@ export class EditTaskComponent implements OnInit {
     userId: "",
     id:0
   }
+  ngOnInit(): void {
+    this.activeRoute.params.subscribe(data => {
+      console.log(data);
+      let finalTask =  this.taskService.viewTaskDetails(data["taskId"]);
+      console.log(finalTask);
+      this.task = finalTask.data
+      console.log(this.task);
+    })
+  }
+  
     taskLevel = ["COMPLETED","PROGRESS","NOT_STARTED"];
     taskDifficulty = ["HIGH","MEDIUM","STANDARD"];
     taskStatus = ["SUCCESS","FAILED","PROGRESS","PAUSED"];
   
     editTask(){
-
+      this.taskService.editTask(this.task.id,this.task);
+      alert(`Saved successfully`);
+      this.myRoute.navigate(['/user/tasks'])
     }
 }

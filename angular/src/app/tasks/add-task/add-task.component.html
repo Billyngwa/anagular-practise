@@ -12,14 +12,16 @@
 
         </div>
         <div class="input-holder">
-
-            <input type="date" [(ngModel)]="task.dueDate" name="dueDate" class="form-control"
-                placeholder="Task due date">
-        </div>
-        <div class="input-holder">
+            <label for="start-date">Start date</label>
 
             <input type="date" name="startDate" [(ngModel)]="task.startDate" class="form-control"
                 placeholder="Task start date">
+        </div>
+        <div class="input-holder">
+            <label for="start-date">Due date</label>
+
+            <input type="date" [(ngModel)]="task.dueDate" name="dueDate" class="form-control"
+                placeholder="Task due date">
         </div>
         <div class="input-selects">
 

@@ -2,7 +2,6 @@
     <form action="#" method="post">
         <h1>Edit  task</h1>
         <div class="input-holder">
-
             <input type="text" [(ngModel)]="task.taskName" name="taskName" class="form-control" placeholder="Task name">
         </div>
         <div class="input-holder">
@@ -12,14 +11,16 @@
 
         </div>
         <div class="input-holder">
-
-            <input type="date" [(ngModel)]="task.dueDate" name="dueDate" class="form-control"
-                placeholder="Task due date">
-        </div>
-        <div class="input-holder">
+            <label for="start-date">Start date</label>
 
             <input type="date" name="startDate" [(ngModel)]="task.startDate" class="form-control"
                 placeholder="Task start date">
+        </div>
+        <div class="input-holder">
+            <label for="start-date">Due date</label>
+
+            <input type="date" [(ngModel)]="task.dueDate" name="dueDate" class="form-control"
+                placeholder="Task due date">
         </div>
         <div class="input-selects">
 
@@ -46,7 +47,7 @@
         </div>
         <div class="button">
 
-            <button (click)="editTask()">Edit task</button>
+            <button (click)="editTask()">Update</button>
         </div>
     </form>
 </section>

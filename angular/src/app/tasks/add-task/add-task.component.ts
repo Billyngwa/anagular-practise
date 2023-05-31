@@ -28,6 +28,6 @@ task:Itask={
   taskStatus = ["SUCCESS","FAILED","PROGRESS","PAUSED"];
   saveTask(){
     this.addTask.addTask(this.task);
-    this.myrouter.navigate([`/view-task/${this.task.userId}`]);
+    this.myrouter.navigate([`/tasks/view-task/${this.task.userId}`]);
   }
 }

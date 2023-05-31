@@ -1,9 +1,9 @@
 @import "../../../styles.scss";
 
 section.container {
-    @include container(80%, 10%);
+    @include container(90%, 5%);
 
-    background-color: teal;
+    // background-color: teal;
 
     h1 {
         @include text-style(20px, 400px, white);

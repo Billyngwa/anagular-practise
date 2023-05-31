@@ -42,10 +42,8 @@ section{
         outline: none;
         border: 3px solid blue;
         &:hover{
-            transform: scale(2);
+            transform: scale(1.1);
             transition: 1.1s;
-            margin-top: 7px;
-            transition: 2s;
         }
         margin-left: 39%;
         margin-top: 37%;

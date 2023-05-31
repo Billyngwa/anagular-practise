@@ -14,58 +14,59 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 const routes: Routes = [
   {
-    path:"",
-    component:MainLandingComponent,
+    path: "",
+    component: MainLandingComponent,
   },
   {
-    path:"main",
-    component:MainComponent,
+    path: "main",
+    component: MainComponent,
   },
   {
-    path:"tasks",
-    component:TaskMainComponent,
-    children:[
+    path: "tasks",
+    component: TaskMainComponent,
+    children: [
       {
-        path:"",
-        component:TasksListComponent,
+        path: "",
+        component: TasksListComponent,
+      },
+
+      {
+        path: "view-task/:userId",
+        component: TasksListComponent,
       },
     ]
   },
   {
-    path:"add-task",
-    component:AddTaskComponent
+    path: "add-task",
+    component: AddTaskComponent
   },
   {
-    path:"view-task/:userId",
-    component:ViewTaskComponent,
+    path: "user/tasks",
+    component: ViewTaskComponent,
   },
   {
-    path:"user/tasks",
-    component:ViewTaskComponent,
+    path: "task/edit-task/:taskId",
+    component: EditTaskComponent
+  },
+  // {
+  //   path:"task/edit-task",
+  //   component:EditTaskComponent
+  // },
+  {
+    path: "task-details/:id",
+    component: TaskDetailsComponent,
   },
   {
-    path:"task/edit-task/:taskId",
-    component:EditTaskComponent
+    path: "sign-in",
+    component: SignInComponent,
   },
   {
-    path:"task/edit-task",
-    component:EditTaskComponent
+    path: "sign-up",
+    component: SignUpComponent,
   },
   {
-    path:"task-details/:id",
-    component:TaskDetailsComponent,
-  },
-  {
-    path:"sign-in",
-    component:SignInComponent,
-  },
-  {
-    path:"sign-up",
-    component:SignUpComponent,
-  },
-  {
-    path:"**",
-    component:PageNotFoundComponent
+    path: "**",
+    component: PageNotFoundComponent
   }
 ];
 

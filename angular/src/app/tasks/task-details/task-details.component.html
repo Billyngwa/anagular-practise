@@ -27,10 +27,10 @@
     </table>
     <div>
       <p class="edit">
-        <button class="edit-button"><a routerLink="/task/edit-task">Edit</a></button>
+        <button class="edit-button" (click)="getTaskId(task.id)">Edit</button>
       </p>
       <p class="edit">
-        <button class="delete-button">Delete</button>
+        <button class="delete-button" (click)="deleteTask()">Delete</button>
       </p>
     </div>
 </section>
