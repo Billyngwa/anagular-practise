@@ -1,36 +1,37 @@
-<section class="details-section">
-    <table>
-        <tbody>
-          <thead>Task Details</thead>
-          <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Task Name</th>
-            <th scope="col">Description</th>
-            <th scope="col">start Date</th>
-            <th scope="col">Due date</th>
-            <th scope="col">Difficulty</th>
-            <th scope="col">Level</th>
-            <th scope="col">State</th>
-
-          </tr>
-          <tr>
-            <td>{{task.id}}</td>
-            <td>{{task.taskName}}</td>
-            <td>{{task.description}}</td>
-            <td>{{task.startDate}}</td>
-            <td>{{task.dueDate}}</td>
-            <td>{{task.difficulty}}</td>
-            <td>{{task.level}}</td>
-            <td>{{task.status}}</td>
-          </tr>
-        </tbody>
-    </table>
-    <div>
-      <p class="edit">
-        <button class="edit-button" (click)="getTaskId(task.id)">Edit</button>
-      </p>
-      <p class="edit">
-        <button class="delete-button" (click)="deleteTask()">Delete</button>
-      </p>
-    </div>
+<section class="mobile desktop">
+  <table>
+    <caption>Task Details</caption>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Task Name</th>
+        <th>Description</th>
+        <th>start Date</th>
+        <th>Due date</th>
+        <th>Difficulty</th>
+        <th>Level</th>
+        <th>State</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-label="Id">{{task.id}}</td>
+        <td data-label="Task Name">{{task.taskName}}</td>
+        <td data-label="Description">{{task.description}}</td>
+        <td data-label="start Date">{{task.startDate}}</td>
+        <td data-label="Due Date">{{task.dueDate}}</td>
+        <td data-label="Difficulty">{{task.difficulty}}</td>
+        <td data-label="Level">{{task.level}}</td>
+        <td data-label="State">{{task.status}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <p class="edit">
+      <button class="edit-button" (click)="getTaskId(task.id)">Edit</button>
+    </p>
+    <p class="edit">
+      <button class="delete-button" (click)="deleteTask()">Delete</button>
+    </p>
+  </div>
 </section>

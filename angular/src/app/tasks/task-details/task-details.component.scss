@@ -1,0 +1,77 @@
+@import "../../../styles.scss";
+.details-section{
+    display: none;
+}
+table{
+    table-layout: fixed;
+    width: 90%;
+    margin-left: 5%;
+    border-collapse: collapse;
+    margin-top: 30px;
+
+  border: 3px solid rgba(11, 11, 64, 0.714);;
+  thead{
+    margin-top: 30px;
+  }
+  thead th:nth-child(1) {
+    width: 10%;
+  }
+  
+  thead th:nth-child(2) {
+    width: 15%;
+  }
+  
+  thead th:nth-child(3) {
+    width: 25%;
+  }
+  
+  thead th:nth-child(4) {
+    width: 10%;
+  }
+  th,td{
+    padding: 20px;
+    
+  }
+}
+section div{
+    margin-left: 45%;
+    margin-top: 20px;
+    display: flex;
+    gap: 80px;
+    p.edit{
+        button{
+            padding: 10px;
+            @include text-style(14px,400px,white);
+            background-color: rgba(11, 11, 64, 0.714);
+            border: none;
+            outline: none;
+            border-radius: 5px;
+        }
+    }
+}
+
+@media (max-width:750px){
+   .mobile table {
+    thead{
+        visibility: hidden;
+        height: 0;
+        position: absolute;
+       
+       }
+   }
+   tr{
+    display: block;
+}
+td{
+    display: block;
+    // font-size: .8em;
+    text-align: right;
+    &::before{
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+    
+    }
+}
+}

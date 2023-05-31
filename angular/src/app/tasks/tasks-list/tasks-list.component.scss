@@ -76,8 +76,8 @@ section.main-section{
                 margin-bottom: 40px;
                 border-radius: 6px;
                 &:hover{
-                    transform: scale(2);
-                    transition: 1.1s;
+                    transform: scale(0);
+                    transition: 1s;
                 }
                 .name{
                     background-color: white;
