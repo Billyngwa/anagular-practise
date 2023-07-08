@@ -13,7 +13,7 @@ export class AuthenticationServiceService {
   constructor(private auth:Auth) { }
 
   login(user:IUser){
-   return from(signInWithEmailAndPassword(this.auth,user.name,user.password));
+   return from(signInWithEmailAndPassword(this.auth,user.email,user.password));
   }
   signUp(user:IUser){
     return from(createUserWithEmailAndPassword(this.auth,user.email,user.password));

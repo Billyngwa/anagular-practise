@@ -17,18 +17,6 @@ export class SignUpComponent {
     name: "",
     email: "",
     password: "",
-    userTasks:{
-      taskName:"",
-      description:"",
-      startDate:"",
-      dueDate:"",
-      status:"",
-      difficulty:"",
-      level:"",
-      userId:"",
-      id:0
-
-    }
   }
   Register(){
     if(this.user.name == ""){

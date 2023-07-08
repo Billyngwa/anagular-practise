@@ -24,11 +24,8 @@ export class EditTaskComponent implements OnInit {
   }
   ngOnInit(): void {
     this.activeRoute.params.subscribe(data => {
-      console.log(data);
       let finalTask =  this.taskService.viewTaskDetails(data["taskId"]);
-      console.log(finalTask);
       this.task = finalTask.data
-      console.log(this.task);
     })
   }
   
@@ -39,6 +36,6 @@ export class EditTaskComponent implements OnInit {
     editTask(){
       this.taskService.editTask(this.task.id,this.task);
       alert(`Saved successfully`);
-      this.myRoute.navigate(['/user/tasks'])
+      this.myRoute.navigate(['/tasks/']);
     }
 }

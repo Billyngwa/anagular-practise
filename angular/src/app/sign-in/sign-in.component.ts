@@ -13,36 +13,18 @@ import {HotToastService } from '@ngneat/hot-toast';
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss']
 })
-export class SignInComponent implements OnChanges {
+export class SignInComponent {
   constructor(
     private store:UserService,
     private session:UsersessionService,
     private myRoute:Router,
-    private auth:AuthenticationServiceService,
-    private toast:HotToastService
     ){}
-   loginStatus = new BooleanConstants();
-   ngOnChanges(): void {
-  
-  }
   
   user: IUser = {
     id: 0,
     name: "",
     email: "",
     password: "",
-    userTasks:{
-      taskName:"",
-      description:"",
-      startDate:"",
-      dueDate:"",
-      status:"",
-      difficulty:"",
-      level:"",
-      userId:"",
-      id:0
-      
-    }
   }
   submitForm(){
     if(this.user.email == "" && this.user.password == ""){
@@ -57,19 +39,8 @@ export class SignInComponent implements OnChanges {
       alert(`fill in password field`);
       return;
     }
-    // this.auth.login(this.user.email,this.user.password).pipe(
-    //   this.toast.observe({
-    //     success:'logged in successfully',
-    //     loading:'Logging In ...',
-    //     error:'there was an error'
-    //   })
-    // ).subscribe(()=>{
-    //   this.myRoute.navigate(['/main'])
-    // });
 
     this.store.signIn(this.user);
     this.session.crtsession(this.user);
-    this.loginStatus.loginStatus = true;
-
   }
 }

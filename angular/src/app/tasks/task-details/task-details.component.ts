@@ -25,11 +25,8 @@ export class TaskDetailsComponent implements OnInit{
   taskId :number|any;
   ngOnInit(): void {
     this.activeRoute.params.subscribe(data => {
-console.log(data);
      let finalTask =  this.taskService.viewTaskDetails(data["id"]);
-console.log(finalTask);
    this.task = finalTask.data
-  console.log(this.task);
 
     }) 
   }
@@ -40,8 +37,8 @@ console.log(finalTask);
     }
     deleteTask(){
       this.taskService.delTask(this.task.id,this.task);
-      alert(`task deleted`);
-      this.myRoute.navigate(["/user/tasks"]);
+      // alert(`task deleted`);
+      this.myRoute.navigate(["/tasks/"]);
       
     }
 }

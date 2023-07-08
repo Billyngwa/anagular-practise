@@ -38,9 +38,6 @@ taskDescription:string="";
     
   }
   viewTaskDetails(taskId:number){
-    // this.taskService.viewTaskDetails(this.task["userId" as keyof object],this.task)
     this.myRouter.navigate([`/task-details/${taskId}`]);
-    console.log(this.task);
-    
   }
 }

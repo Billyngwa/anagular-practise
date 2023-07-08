@@ -36,7 +36,6 @@ export class UsersessionService {
   // getting a users session with session storage
   getsession() {
     let userInScope = this.sessionstore.get("loggedUser");
-    console.log(userInScope)
     
     if (userInScope.status) {
       let someValue = {

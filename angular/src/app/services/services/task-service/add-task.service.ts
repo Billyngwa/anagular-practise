@@ -37,7 +37,6 @@ export class AddTaskService {
 		let taskarr: object[] = [];
 		if (taskFromLocalStorage.status === true) {
 
-			console.log('taskFromLocalStorage.data: ', taskFromLocalStorage.data);
 			
 			taskarr = taskFromLocalStorage.data;
 
@@ -70,32 +69,37 @@ export class AddTaskService {
 				arrResultant.push(atask);
 			}
 		}
-		console.log(arrResultant);
 		return arrResultant;
 	}
 
 	delTask(id: number,newTask:Itask) {
-		// this code is used to find the specific task
-		// const tasksFromLocalStorage = this.localStore.get("Tasks").data;
+		// this code is used to find the specific task by getting its index and removing from
+		// the array using splice array method
 		const tasksFromLocalStorage = this.localStore.get("Tasks").data;
-		console.log(tasksFromLocalStorage, tasksFromLocalStorage.length);
-
+		let taskIndex:number;
+		let delTask
 		let task  = {status:false,data:null};
 		for (let atask of tasksFromLocalStorage) {
 			if (id == atask["id"]) {
-				console.log(atask);
 				task = {
 					status:true, data:atask
 				}
-				let taskIndex: any;
 				taskIndex = tasksFromLocalStorage.indexOf(atask);
-				 tasksFromLocalStorage.splice(taskIndex,1);
-				 this.localStore.set("Tasks",tasksFromLocalStorage);
 				console.log(taskIndex);
-				console.log(tasksFromLocalStorage, tasksFromLocalStorage.length);
+				
+				 tasksFromLocalStorage.splice(taskIndex, 1);
+				//  console.log(tasksFromLocalStorage.splice(0,taskIndex));
+				 
+				// delTask = tasksFromLocalStorage.splice(taskIndex, 1)
+				this.localStore.set('delTask',tasksFromLocalStorage.splice(taskIndex, 1));
+
+				 this.localStore.set("Tasks",tasksFromLocalStorage);
 				
 			}
-		}		
+		}
+
+		// return 	tasksFromLocalStorage.splice(taskIndex,1);
+
 	}
 
 	editTask(id: number,newTask:Itask) {
@@ -103,16 +107,12 @@ export class AddTaskService {
 		let task  = {status:false,data:null};
 		for (let atask of tasksFromLocalStorage) {
 			if (id == atask["id"]) {
-				console.log(atask);
 				task = {
 					status:true, data:atask
 				}
 				let taskIndex: any;
 				taskIndex = tasksFromLocalStorage.indexOf(atask);
-				console.log(taskIndex);
 				tasksFromLocalStorage[taskIndex] = newTask;
-				// tasksFromLocalStorage.push(newTask);
-				console.log(tasksFromLocalStorage);
 				this.localStore.set("Tasks",tasksFromLocalStorage);
 				break;
 			} 
@@ -121,11 +121,9 @@ export class AddTaskService {
 	}
 	viewTaskDetails(id: number) {
 		const tasksFromLocalStorage = this.localStore.get("Tasks").data;
-		console.log(tasksFromLocalStorage);
 		let task  = {status:false,data:null};
 		for (const atask of tasksFromLocalStorage) {
 			if (id == atask["id"]) {
-				console.log(atask);
 				task = {
 					status:true, data:atask
 				}
