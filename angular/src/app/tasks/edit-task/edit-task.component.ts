@@ -19,8 +19,7 @@ export class EditTaskComponent implements OnInit {
     level:"",
     difficulty: "",
     status: "",
-    userId: "",
-    id:0
+    userId: ""
   }
   ngOnInit(): void {
     this.activeRoute.params.subscribe(data => {
@@ -34,7 +33,7 @@ export class EditTaskComponent implements OnInit {
     taskStatus = ["SUCCESS","FAILED","PROGRESS","PAUSED"];
   
     editTask(){
-      this.taskService.editTask(this.task.id,this.task);
+      this.taskService.editTask(this.task._id,this.task);
       alert(`Saved successfully`);
       this.myRoute.navigate(['/tasks/']);
     }

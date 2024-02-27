@@ -20,7 +20,6 @@ export class AddTaskService {
 		difficulty: "",
 		status: "",
 		userId: "",
-		id: 0
 	}
 
 	constructor(
@@ -72,7 +71,7 @@ export class AddTaskService {
 		return arrResultant;
 	}
 
-	delTask(id: number,newTask:Itask) {
+	delTask(id: string,newTask:Itask) {
 		// this code is used to find the specific task by getting its index and removing from
 		// the array using splice array method
 		const tasksFromLocalStorage = this.localStore.get("Tasks").data;
@@ -102,7 +101,7 @@ export class AddTaskService {
 
 	}
 
-	editTask(id: number,newTask:Itask) {
+	editTask(id: string,newTask:Itask) {
 		const tasksFromLocalStorage = this.localStore.get("Tasks").data;
 		let task  = {status:false,data:null};
 		for (let atask of tasksFromLocalStorage) {

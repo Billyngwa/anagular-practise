@@ -15,7 +15,7 @@
     </thead>
     <tbody>
       <tr>
-        <td data-label="Id">{{task.id}}</td>
+        <td data-label="Id">{{task._id}}</td>
         <td data-label="Task Name">{{task.taskName}}</td>
         <td data-label="Description">{{task.description}}</td>
         <td data-label="start Date">{{task.startDate}}</td>
@@ -28,7 +28,7 @@
   </table>
   <div>
     <p class="edit">
-      <button class="edit-button" (click)="getTaskId(task.id)" type="button">Edit</button>
+      <button class="edit-button" (click)="getTaskId(task._id)" type="button">Edit</button>
     </p>
     <p class="edit">
       <button class="delete-button" (click)="deleteTask()" type="button">Delete</button>

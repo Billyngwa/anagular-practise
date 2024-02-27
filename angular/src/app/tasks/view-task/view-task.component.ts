@@ -19,8 +19,7 @@ export class ViewTaskComponent implements OnInit {
     level:"",
     difficulty: "",
     status: "",
-    userId: "",
-    id:0
+    userId: ""
   }
   taskname:string ="";
 taskDescription:string="";
@@ -37,7 +36,7 @@ taskDescription:string="";
     this.myRouter.navigate([`/view-task/:${this.task["id"]}`]);
     
   }
-  viewTaskDetails(taskId:number){
+  viewTaskDetails(taskId:string){
     // this.taskService.viewTaskDetails(this.task["userId" as keyof object],this.task)
     this.myRouter.navigate([`/task-details/${taskId}`]);
     console.log(this.task);

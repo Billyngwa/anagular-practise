@@ -18,25 +18,24 @@ export class TaskDetailsComponent implements OnInit{
     level:"",
     difficulty: "",
     status: "",
-    userId: "",
-    id:0
+    userId: ""
   }
   // task:Itask|any
   taskId :number|any;
   ngOnInit(): void {
     this.activeRoute.params.subscribe(data => {
-     let finalTask =  this.taskService.viewTaskDetails(data["id"]);
+     let finalTask =  this.taskService.viewTaskDetails(data["_id"]);
    this.task = finalTask.data
 
     }) 
   }
-    getTaskId(taskiD:number){
+    getTaskId(taskiD:string){
        taskiD = this.task["id"];
       console.log(taskiD);
       this.myRoute.navigate([`/task/edit-task/${taskiD}`]);
     }
     deleteTask(){
-      this.taskService.delTask(this.task.id,this.task);
+      this.taskService.delTask(this.task._id,this.task);
       // alert(`task deleted`);
       this.myRoute.navigate(["/tasks/"]);
       

@@ -2,6 +2,7 @@ import { TaskDifficulty, TaskLevel, TaskStatus } from "../constants/constants.en
 //this is the task type and it is an interface. here i SAY A task should have the following :
 // a name, description,
 export interface Itask{
+    _id?:string;
     taskName: string;
     description: string;
     startDate: Date | string;
@@ -12,5 +13,4 @@ export interface Itask{
     userId: string;
     image?: string;
     resources?: object | [],
-    id:number
 }

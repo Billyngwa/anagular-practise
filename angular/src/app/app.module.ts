@@ -27,6 +27,7 @@ import { getFirestore } from 'firebase/firestore';
 import { provideAuth } from '@angular/fire/auth';
 import { getAuth } from 'firebase/auth';
 import {initializeApp,provideFirebaseApp} from '@angular/fire/app'
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import {initializeApp,provideFirebaseApp} from '@angular/fire/app'
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    BrowserAnimationsModule,   
+    BrowserAnimationsModule,
+    HttpClientModule,   
      MatSlideToggleModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     provideFirebaseApp( () => initializeApp(environment.firebaseConfig)),

@@ -31,7 +31,7 @@ const routes: Routes = [
       },
 
       {
-        path: "view-task/:userId",
+        path: "view-task",
         component: TasksListComponent,
       },
     ]

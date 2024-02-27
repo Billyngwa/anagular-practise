@@ -2,7 +2,7 @@
     <h1>Your tasks</h1>
     <div class="bold-holder">
         <div class="tasks-holder" *ngFor="let task of tasks">
-            <div class="holder" (click)="viewTaskDetails(task.id)">
+            <div class="holder" (click)="viewTaskDetails(task._id)">
                 <div class="name">
                     <span>{{task.taskName}}</span>
                 </div>
