@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Itask } from 'src/app/interfaces/task.interface';
 import { AddTaskService } from 'src/app/services/services/task-service/add-task.service';
+import { UpdateLocalstoreService } from 'src/app/services/services/task-service/update-localstore.service';
 
 @Component({
   selector: 'app-task-details',
@@ -9,7 +10,7 @@ import { AddTaskService } from 'src/app/services/services/task-service/add-task.
   styleUrls: ['./task-details.component.scss']
 })
 export class TaskDetailsComponent implements OnInit{
-  constructor(private activeRoute:ActivatedRoute,private taskService:AddTaskService, private myRoute:Router){}
+  constructor(private activeRoute:ActivatedRoute,private taskService:UpdateLocalstoreService, private myRoute:Router){}
   task:Itask={
     taskName:'',
     description: '',
@@ -21,23 +22,30 @@ export class TaskDetailsComponent implements OnInit{
     userId: ""
   }
   // task:Itask|any
-  taskId :number|any;
-  ngOnInit(): void {
+  taskId :string;
+  ngOnInit() {
     this.activeRoute.params.subscribe(data => {
-     let finalTask =  this.taskService.viewTaskDetails(data["_id"]);
-   this.task = finalTask.data
-
+      console.log(data);
+      
+     let finalTask =  this.taskService.getTaskById(data['id']).subscribe(data =>{
+      this.task=data["task"]
+      console.log(data["task"]);
+      
+     })
     }) 
   }
     getTaskId(taskiD:string){
-       taskiD = this.task["id"];
+       taskiD = this.task["_id"];
       console.log(taskiD);
       this.myRoute.navigate([`/task/edit-task/${taskiD}`]);
     }
     deleteTask(){
-      this.taskService.delTask(this.task._id,this.task);
+      this.taskService.deleteTask(this.task._id).subscribe(data=>{
+        console.log('user:',data);
+      }
+      )
       // alert(`task deleted`);
-      this.myRoute.navigate(["/tasks/"]);
+      // this.myRoute.navigate(["/tasks/"]);
       
     }
 }

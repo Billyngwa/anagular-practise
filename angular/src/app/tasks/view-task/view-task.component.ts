@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Itask } from 'src/app/interfaces/task.interface';
 import { AddTaskService } from 'src/app/services/services/task-service/add-task.service';
+import { UpdateLocalstoreService } from 'src/app/services/services/task-service/update-localstore.service';
 
 @Component({
   selector: 'app-view-task',
@@ -9,7 +10,8 @@ import { AddTaskService } from 'src/app/services/services/task-service/add-task.
   styleUrls: ['./view-task.component.scss']
 })
 export class ViewTaskComponent implements OnInit {
-  constructor(private taskService:AddTaskService, private myRouter:Router){};
+  arrTasks: any;
+  constructor(private taskService:UpdateLocalstoreService, private myRouter:Router){};
   tasks:Itask[]=[];
   task:Itask={
     taskName:'',
@@ -25,15 +27,17 @@ export class ViewTaskComponent implements OnInit {
 taskDescription:string="";
 
   ngOnInit(): void {
-    let arrTasks:any = this.taskService.getTasks(this.task["userId" as keyof object]);
+     this.taskService.getTasks().subscribe(data =>{
+       this.arrTasks = data;
+     });
    
-    this.tasks = [...this.tasks,...arrTasks];
+    this.tasks = [...this.tasks,...this.arrTasks];
   }
   
   
   searchId(){
-    this.taskService.delTask(this.task["userId" as keyof object],this.task);
-    this.myRouter.navigate([`/view-task/:${this.task["id"]}`]);
+    // this.taskService.delTask(this.task["userId" as keyof object],this.task);
+    // this.myRouter.navigate([`/view-task/:${this.task["id"]}`]);
     
   }
   viewTaskDetails(taskId:string){

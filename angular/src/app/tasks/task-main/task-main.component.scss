@@ -1,5 +1,7 @@
 @import "../../../styles.scss";
-
+h1{
+    color: black!important;
+}
 section.container {
     @include container(90%, 5%);
 

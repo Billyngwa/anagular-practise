@@ -24,12 +24,18 @@ export class UpdateLocalstoreService {
     })
   }
 
-  // sign(data:any){
-  //   this.http.post(environment.base_Url + "/auth/signin",{data:data}).subscribe(data=>{
-  //     console.log(data["status" as keyof object]);
-  //     if(data["status" as keyof object] === true){
-  //       this.router.navigate(["/dashboard"]);
-  //     }
-  //   })
-  // }
+  updateTask(id:string,data:any):Observable<any>{
+    return this.http.put(environment.base_Url + `/task/update/${id}`,{data:data});
+
+  }
+  deleteTask(id:string):Observable<any>{
+    return this.http.delete(environment.base_Url + `/task/deleteTask/${id}`);
+
+ }
+  getTaskById(id: string) {
+		// let task  = {status:false,data:null};
+    return this.http.get(environment.base_Url + `/getTask/details/${id}`);
+    
+		}
+	
 }

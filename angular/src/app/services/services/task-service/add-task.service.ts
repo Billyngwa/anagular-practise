@@ -6,6 +6,7 @@ import { UserService } from '../../userService/user.service';
 import { findIndex } from 'rxjs';
 import { SessionstorageService } from '../../sessionstore/sessionstorage.service';
 import { Router } from '@angular/router';
+import { UpdateLocalstoreService } from './update-localstore.service';
 
 @Injectable({
 	providedIn: 'root'
@@ -27,6 +28,7 @@ export class AddTaskService {
 		private userStore: UsersessionService,
 		private userService: UserService,
 		private sessionstore: SessionstorageService,
+		private updateTask:UpdateLocalstoreService,
 		private route: Router
 	) { }
 
@@ -102,15 +104,18 @@ export class AddTaskService {
 	}
 
 	editTask(id: string,newTask:Itask) {
-		const tasksFromLocalStorage = this.localStore.get("Tasks").data;
+		let  tasksFromLocalStorage ;
+		 this.updateTask.getTaskById(id).subscribe(data=>{tasksFromLocalStorage = data["task"]});
 		let task  = {status:false,data:null};
+		console.log("from local storage",tasksFromLocalStorage);
+		
 		for (let atask of tasksFromLocalStorage) {
 			if (id == atask["id"]) {
 				task = {
 					status:true, data:atask
 				}
 				let taskIndex: any;
-				taskIndex = tasksFromLocalStorage.indexOf(atask);
+				// taskIndex = tasksFromLocalStorage.indexOf(atask);
 				tasksFromLocalStorage[taskIndex] = newTask;
 				this.localStore.set("Tasks",tasksFromLocalStorage);
 				break;
@@ -118,11 +123,11 @@ export class AddTaskService {
 		}
 		return task;
 	}
-	viewTaskDetails(id: number) {
+	viewTaskDetails(id: string) {
 		const tasksFromLocalStorage = this.localStore.get("Tasks").data;
 		let task  = {status:false,data:null};
 		for (const atask of tasksFromLocalStorage) {
-			if (id == atask["id"]) {
+			if (id == atask["_id"]) {
 				task = {
 					status:true, data:atask
 				}

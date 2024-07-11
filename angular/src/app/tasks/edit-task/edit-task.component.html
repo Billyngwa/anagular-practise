@@ -2,10 +2,10 @@
     <form action="#" method="post">
         <h1>Edit  task</h1>
         <div class="input-holder">
-            <input type="text" [(ngModel)]="task.taskName" name="taskName" class="form-control" placeholder="Task name">
+            <input type="text" [(ngModel)]="finalTask.taskName" name="taskName" class="form-control" placeholder="Task name">
         </div>
         <div class="input-holder">
-            <textarea type="text" [(ngModel)]="task.description" name="description" placeholder="Task description"
+            <textarea type="text" [(ngModel)]="finalTask.description" name="description" placeholder="Task description"
                 class="form-control" rows="5" cols="50">
         </textarea>
 
@@ -13,33 +13,33 @@
         <div class="input-holder">
             <label for="start-date">Start date</label>
 
-            <input type="date" name="startDate" [(ngModel)]="task.startDate" class="form-control"
+            <input type="date" name="startDate" [(ngModel)]="finalTask.startDate" class="form-control"
                 placeholder="Task start date">
         </div>
         <div class="input-holder">
             <label for="start-date">Due date</label>
 
-            <input type="date" [(ngModel)]="task.dueDate" name="dueDate" class="form-control"
+            <input type="date" [(ngModel)]="finalTask.dueDate" name="dueDate" class="form-control"
                 placeholder="Task due date">
         </div>
         <div class="input-selects">
 
             <div class="input-holder">
 
-                <select name="level" id="level" [(ngModel)]="task.level">
+                <select name="level" id="level" [(ngModel)]="finalTask.level">
                     <option value="" disabled="disabled">Select Task Level</option>
                     <option *ngFor=" let level of taskLevel" [value]="level">{{level}}</option>
                 </select>
             </div>
             <div class="input-holder">
 
-                <select name="difficulty" id="difficulty" [(ngModel)]="task.difficulty">
+                <select name="difficulty" id="difficulty" [(ngModel)]="finalTask.difficulty">
                     <option value="" disabled="disabled">Select Task Difficulty</option>
                     <option *ngFor="let difficulty of taskDifficulty" [value]="difficulty">{{difficulty}}</option>
                 </select>
             </div>
             <div class="input-holder">
-                <select name="status" id="status" [(ngModel)]="task.status" #task.status>
+                <select name="status" id="status" [(ngModel)]="finalTask.status" #task.status>
                     <option value="" disabled="disabled">Select Task Status</option>
                     <option *ngFor="let status of taskStatus" [value]="status">{{status}}</option>
                 </select>
